@@ -1,0 +1,76 @@
+{
+  "max_budget_residual": 2.220446049250313e-16,
+  "max_balance_residual": 8.362108032996951e-16,
+  "log_jump_interior_stationary_Q": 0.6983320103166972,
+  "log_jump_endpoint_difference": -4.440892098500626e-14,
+  "bench_max_gap": 9.999945751459904e-07,
+  "bench_interior_cases": 41,
+  "bench_interior_median_inner": 3588.0,
+  "rho_thresholds": {
+    "0.25": {
+      "any": 1.4809140396866014,
+      "bound": 0.14961466620458905
+    },
+    "0.5": {
+      "any": 2.9618361036123506,
+      "bound": 0.49089349339733673
+    },
+    "1.0": {
+      "any": 7.456389515234428,
+      "bound": 3.435254223518697
+    }
+  },
+  "kappa": 2.2142857142857144,
+  "transition_slopes": {
+    "exp": {
+      "entry": 2.214285717484681,
+      "saturation": 2.2142857442411894,
+      "types": [
+        "continuous"
+      ]
+    },
+    "power": {
+      "entry": 2.2142857142855754,
+      "saturation": 2.21428572932961,
+      "types": [
+        "continuous"
+      ]
+    },
+    "log": {
+      "entry": 2.2142857142865675,
+      "saturation": 2.2142857142865675,
+      "types": [
+        "jump"
+      ]
+    }
+  },
+  "matched_endpoint_entry": {
+    "exp": 2.213516324124858e+17,
+    "power": 7.140155240004987e+17,
+    "log": 9.861744427893468e+17
+  },
+  "robust": [
+    {
+      "C": 1e+19,
+      "Q": 0.5429272883586321,
+      "quality_share": 0.0,
+      "loss": 2.9989461614676545
+    },
+    {
+      "C": 1e+22,
+      "Q": 1.0,
+      "quality_share": 0.1609251115689518,
+      "loss": 2.1068645866444924
+    },
+    {
+      "C": 1e+24,
+      "Q": 1.0,
+      "quality_share": 0.027654365572243288,
+      "loss": 1.8902009717003279
+    }
+  ],
+  "saturation_exponents": {
+    "N": 0.45161290322580644,
+    "D": 0.5483870967741935
+  }
+}
