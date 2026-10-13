@@ -18,7 +18,7 @@ The binding budget reduces the problem to a strictly convex problem in $\ln N$ a
 | `src/model.py` | Model inputs, inner solver with safeguarded bounds, Algorithm 1 (`Problem.solve`) |
 | `src/run_experiments.py` | All computational experiments of Section 5; writes `results/` |
 | `src/make_figures.py`, `src/nstyle.py` | Data figures (Figs. 3–6) from `results/` and `data/`; writes `figures/` |
-| `src/quality_coordinate.py` | Quality coordinate of Eq. (19) and baseline quality $Q_0$ from Meta-rater document ratings |
+| `src/quality_coordinate.py` | Quality coordinate of Eq. (21) and baseline quality $Q_0$ from Meta-rater document ratings |
 | `results/` | Outputs of `run_experiments.py` used in the paper (allocations, transitions, solver benchmark, sensitivity) |
 | `data/quality_domain_summary.csv` | Domain-level quality scores (reference sample, new check documents, all documents) |
 | `figures/` | Figures produced by `make_figures.py` |
@@ -56,7 +56,7 @@ Results in the paper were computed with Python 3.12, NumPy 2.5, SciPy 1.18, pand
 
 ## Note on the optimality certificate
 
-Eq. (15) and Proposition 2 hold in exact arithmetic. The implementation evaluates them in double precision and subtracts a rounding allowance of $8u_{\mathrm{mach}}F$; this allowance is not a validated bound on all floating-point errors, so the reported gaps are numerical estimates of the exact-arithmetic certificates.
+Eq. (17) and Proposition 2 hold in exact arithmetic. The implementation evaluates them in double precision and subtracts a rounding allowance of $8u_{\mathrm{mach}}F$; this allowance is not a validated bound on all floating-point errors, so the reported gaps are numerical estimates of the exact-arithmetic certificates.
 
 ## Citation
 

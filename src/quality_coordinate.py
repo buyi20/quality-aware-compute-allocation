@@ -1,4 +1,4 @@
-"""Quality coordinate of Section 5.2 (Eq. 19) from SlimPajama-Meta-rater document ratings.
+"""Quality coordinate of Section 5.2 (Eq. 21) from SlimPajama-Meta-rater document ratings.
 
 Input: JSON Lines files (optionally .xz-compressed) whose records carry the Meta-rater quality
 signals listed in FIELDS, a document id and a SlimPajama domain. The reference files define the
@@ -31,7 +31,7 @@ FIELDS = sum(GROUPS.values(), [])          # 22 signals (the four QuRating crite
 NEGATIVE = ['rps_doc_frac_no_alph_words', 'rps_doc_frac_chars_top_2gram', 'rps_doc_frac_chars_top_3gram',
             'rps_lines_uppercase_letter_fraction', 'rps_lines_numerical_chars_fraction']
 DOMAINS = ['arxiv', 'book', 'c4', 'commoncrawl', 'github', 'stackexchange', 'wikipedia']
-EPS = 0.01                                 # shift epsilon of Eq. (19)
+EPS = 0.01                                 # shift epsilon of Eq. (21)
 
 
 def softmax(v):
@@ -91,7 +91,7 @@ def weighted_quantile(ref, w, q):
 
 
 def smoothed_geometric_mean(G, weights=None):
-    """Eq. (19): shift each dimension score by EPS, take the weighted geometric mean, rescale to [0, 1]."""
+    """Eq. (21): shift each dimension score by EPS, take the weighted geometric mean, rescale to [0, 1]."""
     w = np.full(G.shape[1], 1 / G.shape[1]) if weights is None else np.asarray(weights)
     return (np.exp(np.log(EPS + (1 - EPS) * G) @ w) - EPS) / (1 - EPS)
 

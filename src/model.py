@@ -59,7 +59,7 @@ class Problem:
     def h(self, q):
         return self.rho * (g(q, self.shape) - g(Q0, self.shape))
 
-    # inner objective F_Q(x) and its derivative, Eq. (12), with h in units of 1e9 FLOPs/token
+    # inner objective F_Q(x) and its derivative, Eq. (13), with h in units of 1e9 FLOPs/token
     def F(self, x, hb):
         return A_B * math.exp(-ALPHA * x) + B_B * self.c ** (-BETA) * (self.k * math.exp(x) + hb) ** BETA
 
@@ -84,7 +84,7 @@ class Problem:
         xm = 0.5 * (xl + xu)
         Fm = self.F(xm, hb)
         M = max(abs(self.dF(xl, hb)), abs(self.dF(xu, hb)))
-        lower = Fm - M * (xu - xl) - 8 * EPS_MACH * Fm          # Eq. (15) with rounding allowance
+        lower = Fm - M * (xu - xl) - 8 * EPS_MACH * Fm          # Eq. (17) with rounding allowance
         out = dict(x=xm, B=Fm, Bm=lower, hb=hb, V=math.exp(-self.tau * (q - Q0)) * Fm)
         self.cache[q] = out
         return out
@@ -93,7 +93,7 @@ class Problem:
         return self.inner(q)['V']
 
     def lb(self, l, u):
-        """Interval lower bound of Proposition 2, Eq. (14)."""
+        """Interval lower bound of Proposition 2, Eq. (16)."""
         Bm = self.inner(l)['Bm']
         if Bm <= 0:
             return -math.inf
@@ -158,7 +158,7 @@ def state(sol, qbar=None, tol=1e-6):
 
 
 def local_threshold_budget(shape, rho=1.0, tau=TAU_REF):
-    """Budget at which the local criterion of Eq. (17) first favours quality investment at Q0."""
+    """Budget at which the local criterion of Eq. (19) first favours quality investment at Q0."""
     n_loc = ALPHA * BETA * rho * g_prime(Q0, shape) / (tau * (ALPHA + BETA) * K) / 1e9  # billions
     lo, hi = 10.0, 30.0
     for _ in range(200):
