@@ -47,7 +47,7 @@ def g_prime(q, shape):
 
 
 class Problem:
-    """One allocation problem, Eq. (11): budget C, cost shape and scale, benefit tau, bound Qbar."""
+    """One allocation problem, Eq. (9): budget C, cost shape and scale, benefit tau, bound Qbar."""
 
     def __init__(self, C, shape='exp', rho=1.0, tau=TAU_REF, qbar=QBAR_REF, k=K):
         self.C, self.c = float(C), float(C) / 1e18
