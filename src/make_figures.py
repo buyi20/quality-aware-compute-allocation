@@ -63,8 +63,8 @@ STY = {'Local search from baseline': (CATEGORICAL[0], 'o', 'Local from $Q_0$'),
        'Uniform Q grid (41)': (CATEGORICAL[2], '^', 'Q-grid (41)'),
        'Uniform Q grid (81)': (CATEGORICAL[2], 'v', 'Q-grid (81)'),
        'Multi-start local search (10)': (CATEGORICAL[4], 'P', 'Multi-start (10)'),
-       'Certified branch-and-bound': (ACCENT_RED, '*', 'Certified B&B')}
-BB_LABEL_B = 'Certified B&B\n(largest reported gap)'
+       'Certified branch-and-bound': (ACCENT_RED, '*', 'Certified branch-and-bound')}
+BB_LABEL_B = 'Certified branch-and-bound\n(largest reported gap)'
 fig = plt.figure(figsize=(TEXTWIDTH * 0.9, 2.35))
 gs = fig.add_gridspec(1, 2, width_ratios=[1.25, 1], wspace=0.4)
 ax = fig.add_subplot(gs[0, 0])
